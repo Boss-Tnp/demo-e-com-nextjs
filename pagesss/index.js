@@ -1,21 +1,33 @@
-import Search from "./../components/search/search";
+import Head from "next/head";
+import styles from "./../styles/Home.module.css";
+import Layout from "./layout/layout";
+import MyHome from "../components/home/home";
 import Axios from "axios";
-import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "./../utils/constant";
+import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "../utils/constant";
 import { useDispatch } from "react-redux";
-import * as actions from "./../store/action/index";
 import { useEffect } from "react";
+import * as actions from "../store/action/index";
 
-const SearchPage = (props) => {
+export default function Home(props) {
+  // console.log(props);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(actions.setProducts(props.products));
   }, [dispatch]);
+  return (
+    <>
+      {/* <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head> */}
 
-  return <Search {...props} />;
-};
-
-export default SearchPage;
+      {/* <Layout> */}
+      <MyHome />
+      {/* </Layout> */}
+    </>
+  );
+}
 
 export async function getStaticProps() {
   const res = await Axios.post(
@@ -52,6 +64,5 @@ export async function getStaticProps() {
     props: {
       products,
     },
-    revalidate: 1,
   };
 }

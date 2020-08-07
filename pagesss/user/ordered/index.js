@@ -1,5 +1,5 @@
-import Ordered from "./../../../components/user/Ordered/ordered";
-import User from "./../../../components/user/user";
+import Ordered from "../../../components/user/Ordered/ordered";
+import User from "../../../components/user/user";
 
 const OrderedPage = () => {
   return (

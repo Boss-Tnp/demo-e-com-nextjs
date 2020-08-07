@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "./navbar/navbar";
 import { useSelector, useDispatch } from "react-redux";
-import * as actions from "./../../store/action/index";
+import * as actions from "../../store/action/index";
 
 const Layout = (props) => {
   const { token, cartNo, role } = useSelector((state) => {
