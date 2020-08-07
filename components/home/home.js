@@ -5,8 +5,7 @@ import Trending from "./trending/trending";
 import { useSelector } from "react-redux";
 import Fade from "react-reveal/Fade";
 
-const Home = (props) => {
-  const products = useSelector((state) => state.productsReducer.products);
+const Home = () => {
   const activeProducts = useSelector(
     (state) => state.productsReducer.activeProducts
   );

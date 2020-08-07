@@ -54,9 +54,9 @@ const Promotion = () => {
 
         <div className={classes.imgContainer}>
           <Typography
-            variant="h6"
             component="img"
             className={classes.img}
+            alt="new-collection"
             src="https://firebasestorage.googleapis.com/v0/b/e-commerce-24970.appspot.com/o/banner-img.png?alt=media&token=f9a798c3-165d-4ebf-814c-3b9108790fb6"
           ></Typography>
         </div>
