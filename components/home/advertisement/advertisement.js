@@ -6,7 +6,7 @@ import PaymentOutlinedIcon from "@material-ui/icons/PaymentOutlined";
 import PublicOutlinedIcon from "@material-ui/icons/PublicOutlined";
 import WatchLaterOutlinedIcon from "@material-ui/icons/WatchLaterOutlined";
 import React from "react";
-import MyAvatar from "./Ads-avatar/ads-avatar";
+import MyAvatar from "./ads-avatar/ads-avatar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
