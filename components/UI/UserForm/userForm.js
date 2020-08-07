@@ -80,7 +80,7 @@ const UserForm = (props) => {
             <ListItem>
               <ListItemText primary="ข้อมูลการชำระเงิน" />
             </ListItem>
-            <Link href="/user/personal">
+            <Link href="/personal">
               <a>
                 <MyButton color="primary">แก้ไขข้อมูล</MyButton>
               </a>

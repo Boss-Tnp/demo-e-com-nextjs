@@ -1,4 +1,4 @@
-import OrderDetails from "../../../components/user/ordered/orderedDetail/orderedDetail";
+import OrderDetails from "../../components/user/ordered/orderedDetail/orderedDetail";
 import { useSelector } from "react-redux";
 
 const OrderedDetailsPage = () => {

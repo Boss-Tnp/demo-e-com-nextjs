@@ -197,7 +197,7 @@ const Ordered = ({ token, userId }) => {
   const onClickHandler = (e, orderId) => {
     e.preventDefault();
     // console.log(props);
-    router.push(`/user/ordered/` + orderId);
+    router.push(`/ordered/` + orderId);
   };
 
   const handleChangePage = (event, newPage) => {

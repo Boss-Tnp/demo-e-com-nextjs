@@ -125,7 +125,7 @@ const Navbar = (props) => {
           <div className={styles.spacing} />
           {props.role === "user" ? (
             <Typography className={styles.title} variant="subtitle2">
-              <Link href="/user/personal">
+              <Link href="/personal">
                 <a>ข้อมูลของฉัน</a>
               </Link>
             </Typography>

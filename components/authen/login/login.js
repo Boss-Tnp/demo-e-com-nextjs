@@ -154,7 +154,7 @@ const Login = (props) => {
         if (res.data.data.login.role === "admin") {
           router.push("/products");
         } else {
-          router.push("/user/personal");
+          router.push("/personal");
         }
       } catch (err) {
         setLoginButtonLoading(false);
