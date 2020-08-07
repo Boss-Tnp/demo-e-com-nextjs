@@ -35,7 +35,7 @@ import {
   INACTIVE_COLOR,
 } from "./../../utils/constant";
 import MyButton from "./../UI/Button/button";
-import * as actions from "./../../Store/Action/index";
+import * as actions from "./../../store/action/index";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 

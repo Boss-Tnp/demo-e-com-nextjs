@@ -12,11 +12,11 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
 import { connect } from "react-redux";
-import MyButton from "./../I/Button/button";
-import * as actions from "./../../Store/Action/index";
+import MyButton from "./../UI/Button/button";
+import * as actions from "./../../store/action/index";
 import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
 import CartItem from "./CartItem/cartItem";
-import Processing from "./../I/pages/processing";
+import Processing from "./../UI/pages/processing";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({

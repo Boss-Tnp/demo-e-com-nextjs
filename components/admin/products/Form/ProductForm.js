@@ -35,7 +35,7 @@ import Info from "./Info/info";
 import Pricing from "./Pricing/pricing";
 import Shipping from "./Shipping/shipping";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import * as actions from "./.../../Store/Action/index";
+import * as actions from "./.../../store/action/index";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({

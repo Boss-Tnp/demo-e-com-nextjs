@@ -1,4 +1,4 @@
-import Payment from "./../omponents/payment/payment";
+import Payment from "./../components/payment/payment";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 

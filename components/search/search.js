@@ -26,7 +26,7 @@ import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useQueryState } from "react-router-use-location-state";
-import Item from "./../I/Item/item";
+import Item from "./../UI/Item/item";
 import * as actions from "./../store/action/index";
 
 const useStyles = makeStyles((theme) => ({
