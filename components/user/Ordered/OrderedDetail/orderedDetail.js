@@ -1,13 +1,16 @@
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import Axios from "axios";
-import React, { useEffect, useState } from "react";
-import { GRAPHQLAPI_ENDPOINT } from "./../../../../utils/constant";
-import OrderedCard from "./OrderedCard/orderedCard";
-import { Box } from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import Grid from "components/user/ordered/orderedDetail/node_modules/@material-ui/core/Grid";
+import { makeStyles } from "components/user/ordered/orderedDetail/node_modules/@material-ui/core/styles";
+import Axios from "components/user/ordered/orderedDetail/node_modules/axios";
+import React, {
+  useEffect,
+  useState,
+} from "components/user/ordered/orderedDetail/node_modules/react";
+import { GRAPHQLAPI_ENDPOINT } from "../../../../utils/constant";
+import OrderedCard from "./orderedCard/orderedCard";
+import { Box } from "components/user/ordered/orderedDetail/node_modules/@material-ui/core";
+import Skeleton from "components/user/ordered/orderedDetail/node_modules/@material-ui/lab/Skeleton";
+import { useRouter } from "components/user/ordered/orderedDetail/node_modules/next/router";
+import { useSelector } from "components/user/ordered/orderedDetail/node_modules/react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {

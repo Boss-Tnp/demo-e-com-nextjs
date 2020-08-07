@@ -1,9 +1,9 @@
-import ButtonBase from "@material-ui/core/ButtonBase";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import React from "react";
+import ButtonBase from "components/user/ordered/orderedDetail/orderedCard/node_modules/@material-ui/core/ButtonBase";
+import Grid from "components/user/ordered/orderedDetail/orderedCard/node_modules/@material-ui/core/Grid";
+import Paper from "components/user/ordered/orderedDetail/orderedCard/node_modules/@material-ui/core/Paper";
+import { makeStyles } from "components/user/ordered/orderedDetail/orderedCard/node_modules/@material-ui/core/styles";
+import Typography from "components/user/ordered/orderedDetail/orderedCard/node_modules/@material-ui/core/Typography";
+import React from "components/user/ordered/orderedDetail/orderedCard/node_modules/react";
 import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles((theme) => ({
