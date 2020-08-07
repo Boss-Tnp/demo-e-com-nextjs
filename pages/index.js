@@ -1,12 +1,12 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "./../styles/Home.module.css";
 import Layout from "./layout/layout";
-import MyHome from "../components/home/home";
+import MyHome from "./../components/home/home";
 import Axios from "axios";
-import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "../utils/constant";
+import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "./../utils/constant";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import * as actions from "../store/action/index";
+import * as actions from "./../store/action/index";
 
 export default function Home(props) {
   // console.log(props);

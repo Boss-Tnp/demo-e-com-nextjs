@@ -11,13 +11,13 @@ import {
 } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import MyButton from "../../UI/Button/button";
+import MyButton from "./../UI/Button/button";
 import Axios from "axios";
 import {
   API_HEADER,
   updateObject,
   GRAPHQLAPI_ENDPOINT,
-} from "../../../utils/constant";
+} from "./../../utils/constant";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({

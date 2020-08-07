@@ -1,4 +1,4 @@
-import * as actionTypes from "../action/actionTypes";
+import * as actionTypes from "./../action/actionTypes";
 import jwt from "jsonwebtoken";
 
 const initialState = {

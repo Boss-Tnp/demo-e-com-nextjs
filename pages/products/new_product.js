@@ -1,4 +1,4 @@
-import NewProduct from "../../components/admin/products/Form/ProductForm";
+import NewProduct from "./../components/admin/products/Form/ProductForm";
 import { useSelector, useDispatch } from "react-redux";
 
 const NewProductPage = () => {

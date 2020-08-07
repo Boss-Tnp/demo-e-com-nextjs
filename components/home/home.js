@@ -1,10 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { API_HEADER, GRAPHQLAPI_ENDPOINT } from "../../utils/constant";
+import React from "react";
 import Advertisement from "./advertisement/advertisement";
 import Promotion from "./promotion/promotion";
 import Trending from "./trending/trending";
-import * as actions from "./../../store/action/index";
 import { useSelector } from "react-redux";
 import Fade from "react-reveal/Fade";
 

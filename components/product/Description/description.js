@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import NumberFormat from "react-number-format";
-import MyButton from "../../UI/Button/button";
+import MyButton from "./../UI/Button/button";
 
 const useStyles = makeStyles((theme) => ({
   root: {

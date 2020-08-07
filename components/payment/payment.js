@@ -3,10 +3,10 @@ import { useElements, useStripe } from "@stripe/react-stripe-js";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as actions from "../../store/action/index";
-import { GRAPHQLAPI_ENDPOINT } from "../../utils/constant";
-import UserForm from "../UI/UserForm/userForm";
-import LoadingPage from "../UI/pages/loading";
+import * as actions from "./../store/action/index";
+import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
+import UserForm from "./../I/UserForm/userForm";
+import LoadingPage from "./../I/pages/loading";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({

@@ -15,7 +15,7 @@ import Personal from "./personal/personal";
 import Ordered from "./Ordered/ordered";
 import { connect } from "react-redux";
 import OrderedDetail from "./Ordered/OrderedDetail/orderedDetail";
-import { ACTIVE_LINK } from "../../utils/constant";
+import { ACTIVE_LINK } from "./../../utils/constant";
 import { useRouter } from "next/router";
 import Link from "next/link";
 

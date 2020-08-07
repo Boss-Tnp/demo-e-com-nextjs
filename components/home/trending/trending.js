@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useEffect, useState } from "react";
 import { withRouter } from "next/router";
-import Item from "../../UI/Item/item";
+import Item from "./../../UI/Item/item";
 
 const useStyles = makeStyles((theme) => ({
   root: {

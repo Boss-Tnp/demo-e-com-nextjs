@@ -1,6 +1,5 @@
-import Personal from "../../components/user/personal/personal";
-import User from "../../components/user/user";
-import { useRouter } from "next/router";
+import Personal from "./../../components/user/personal/personal";
+import User from "./../../components/user/user";
 
 const PersonalPage = () => {
   return (

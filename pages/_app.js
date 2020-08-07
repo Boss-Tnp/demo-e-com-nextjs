@@ -3,15 +3,15 @@ import "../styles/globals.css";
 import Head from "next/head";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
-import { useStore } from "../store/store";
-import theme from "../src/theme";
+import { useStore } from "./../store/store";
+import theme from "./../src/theme";
 import { QueryParamProvider } from "use-query-params";
 import { Route, BrowserRouter } from "react-router-dom";
-import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "../utils/constant";
+import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "./../utils/constant";
 import Layout from "./layout/layout";
 import { PersistGate } from "redux-persist/integration/react";
-import persistor from "../store/reducer/index";
-// import * as actions from "../store/action/index";
+import persistor from "./../store/reducer/index";
+// import * as actions from "./../store/action/index";
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);

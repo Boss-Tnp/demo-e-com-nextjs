@@ -1,4 +1,4 @@
-import Success from "../components/UI/pages/success";
+import Success from "./../omponents/UI/pages/success";
 
 const SuccessPage = () => {
   return <Success />;

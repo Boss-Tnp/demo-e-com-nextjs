@@ -25,7 +25,7 @@ import moment from "moment";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
-import { GRAPHQLAPI_ENDPOINT } from "../../../utils/constant";
+import { GRAPHQLAPI_ENDPOINT } from "./../../../utils/constant";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({

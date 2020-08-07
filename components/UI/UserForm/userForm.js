@@ -12,8 +12,8 @@ import { CardElement } from "@stripe/react-stripe-js";
 import React from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import StripeInput from "../../payment/PaymentForm/StripeInput";
-import MyButton from "../Button/button";
+import StripeInput from "./../../payment/PaymentForm/StripeInput";
+import MyButton from "./../Button/button";
 
 const useStyles = makeStyles((theme) => ({
   container: {

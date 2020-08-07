@@ -15,9 +15,9 @@ import {
   API_HEADER,
   GRAPHQLAPI_ENDPOINT,
   updateObject,
-} from "../../../utils/constant";
-import MyButton from "../../UI/Button/button";
-import * as actions from "../../../Store/Action/index";
+} from "./../../utils/constant";
+import MyButton from "./../UI/Button/button";
+import * as actions from "./../../Store/Action/index";
 import Link from "next/link";
 import { useRouter } from "next/router";
 

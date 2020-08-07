@@ -2,7 +2,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { GRAPHQLAPI_ENDPOINT } from "../../../../utils/constant";
+import { GRAPHQLAPI_ENDPOINT } from "./../../../../utils/constant";
 import OrderedCard from "./OrderedCard/orderedCard";
 import { Box } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";

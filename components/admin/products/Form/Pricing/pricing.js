@@ -1,7 +1,7 @@
 import { TextField } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import React from "react";
-import { NumberFormatNormal } from "../../../../UI/Number/number";
+import { NumberFormatNormal } from "./../../../UI/Number/number";
 
 const Pricing = (props) => {
   return (

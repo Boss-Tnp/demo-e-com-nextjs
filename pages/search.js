@@ -1,8 +1,8 @@
-import Search from "../components/search/search";
+import Search from "./../omponents/search/search";
 import Axios from "axios";
-import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "../utils/constant";
+import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "./../utils/constant";
 import { useDispatch } from "react-redux";
-import * as actions from "../store/action/index";
+import * as actions from "./../store/action/index";
 import { useEffect } from "react";
 
 const SearchPage = (props) => {

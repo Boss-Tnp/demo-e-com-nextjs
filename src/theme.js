@@ -11,7 +11,7 @@ import {
   SECOND_COLOR,
   BORDER_COLOR,
   SUBTITLE1_COLOR,
-} from "../utils/constant";
+} from "./../utils/constant";
 import { createMuiTheme } from "@material-ui/core";
 
 const theme = createMuiTheme({
