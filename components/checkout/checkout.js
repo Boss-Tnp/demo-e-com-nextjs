@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 import MyButton from "./../UI/Button/button";
 import * as actions from "./../../store/action/index";
 import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
-import CartItem from "./CartItem/cartItem";
+import CartItem from "./cartItem/cartItem";
 import Processing from "./../UI/pages/processing";
 import { useRouter } from "next/router";
 
