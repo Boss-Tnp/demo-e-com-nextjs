@@ -1,9 +1,8 @@
-import { makeStyles, CircularProgress } from "@material-ui/core";
+import { CircularProgress, makeStyles } from "@material-ui/core";
 import Axios from "axios";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
-import { connect } from "react-redux";
 import { GRAPHQLAPI_ENDPOINT } from "../../../utils/constant";
 import UserForm from "../../UI/UserForm/userForm";
 
@@ -201,11 +200,4 @@ const Personal = ({ token, userId }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    token: state.authReducer.token,
-    userId: state.authReducer.userId,
-  };
-};
-
-export default connect(mapStateToProps)(Personal);
+export default Personal;

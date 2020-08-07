@@ -9,17 +9,17 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from "axios";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import * as actions from "./../../../store/action/index";
 import {
   API_HEADER,
   GRAPHQLAPI_ENDPOINT,
   updateObject,
 } from "./../../../utils/constant";
 import MyButton from "./../../UI/Button/button";
-import * as actions from "./../../../store/action/index";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   loginContainer: {
@@ -257,10 +257,4 @@ const Login = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSetToken: (token, userId) => dispatch(actions.setToken(token, userId)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;

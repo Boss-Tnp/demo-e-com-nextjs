@@ -12,31 +12,18 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
+import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import Axios from "axios";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React, {
-  useEffect,
-  useState,
-  useCallback,
-  useReducer,
-  useMemo,
-} from "react";
-import { connect } from "react-redux";
-import { StringParam, useQueryParam } from "use-query-params";
-import {
-  API_HEADER,
-  GRAPHQLAPI_ENDPOINT,
-  RESTAPI_ENDPOINT,
-  H1_COLOR,
-} from "./../../../../utils/constant";
+import React, { useEffect, useReducer, useState } from "react";
+import * as actions from "./../../../../store/action/index";
+import { H1_COLOR, RESTAPI_ENDPOINT } from "./../../../../utils/constant";
 import MyButton from "./../../../UI/Button/button";
 import Image from "./Image/image";
 import Info from "./Info/info";
 import Pricing from "./Pricing/pricing";
 import Shipping from "./Shipping/shipping";
-import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import * as actions from "./../../../../store/action/index";
-import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -635,20 +622,6 @@ const ProductForm = ({ product, dispatchRedux, token }) => {
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state) => {
-  return {
-    token: state.authReducer.token,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSetProduct: (product) => dispatch(actions.setProduct(product)),
-    onDeletetProduct: (productId) => dispatch(actions.deleteProduct(productId)),
-    onAddProduct: (product) => dispatch(actions.addProduct(product)),
-  };
 };
 
 export default ProductForm;
