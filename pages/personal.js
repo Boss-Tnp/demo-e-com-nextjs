@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Personal from "../components/user/personal/personal";
+import PersonalApp from "../components/user/personalInfo/personal";
 import User from "../components/user/user";
 
 const PersonalPage = () => {
@@ -12,7 +12,7 @@ const PersonalPage = () => {
 
   return (
     <User>
-      <Personal token={token} userId={userId} />
+      <PersonalApp token={token} userId={userId} />
     </User>
   );
 };
