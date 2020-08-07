@@ -1,4 +1,4 @@
-import Ordered from "../../components/user/ordered/ordered";
+// import Ordered from "../../components/user/ordered/ordered";
 import User from "../../components/user/user";
 import { useSelector } from "react-redux";
 
