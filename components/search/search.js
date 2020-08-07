@@ -509,6 +509,7 @@ export const Search = (props) => {
                   id="searchTxt"
                   type="text"
                   placeholder="ค้นหา"
+                  name="searchBtn"
                   value={queryParams.txt}
                   className={classes.secondaryText}
                   onChange={onSearchChangeHandler}

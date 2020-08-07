@@ -44,7 +44,7 @@ const Promotion = () => {
       <div className={classes.paperContainer}>
         <div className={classes.text}>
           <Typography variant="h2">Demo Project</Typography>
-          <Typography variant="subtitle1">
+          <Typography variant="h3">
             Praesent tincidunt fringilla metus, id pharetra ipsum volutpat quis.
             Curabitur libero lectus, imperdiet a luctus at, faucibus nec tortor.
             Vivamus vel ultricies enim.

@@ -74,11 +74,20 @@ const Home = () => {
   // return <p>Hello World</p>;
 
   return (
-    <Fade bottom>
-      <Promotion></Promotion>
-      <Advertisement></Advertisement>
-      <Trending activeProducts={activeProducts}></Trending>
-    </Fade>
+    <>
+      <Head>
+        <title>Demo E-commerce</title>
+        <meta
+          name="description"
+          content="A Home Page For Demo E-Commerce Project with NextJS."
+        />
+      </Head>
+      <Fade bottom>
+        <Promotion></Promotion>
+        <Advertisement></Advertisement>
+        <Trending activeProducts={activeProducts}></Trending>
+      </Fade>
+    </>
   );
 };
 
