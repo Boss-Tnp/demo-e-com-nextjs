@@ -1,13 +1,13 @@
+import { Box } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import Skeleton from "@material-ui/lab/Skeleton";
 import Axios from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { GRAPHQLAPI_ENDPOINT } from "../../../../utils/constant";
 import OrderedCard from "./orderedCard/orderedCard";
-import { Box } from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
