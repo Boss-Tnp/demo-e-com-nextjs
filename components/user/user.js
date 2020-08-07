@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { connect } from "react-redux";
-import { ACTIVE_LINK } from "./../../utils/constant";
+import { ACTIVE_LINK } from "../../utils/constant";
 
 const useStyles = makeStyles((theme) => ({
   root: {

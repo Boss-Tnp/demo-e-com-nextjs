@@ -16,15 +16,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OrderedDetail = () => {
+const OrderedDetail = ({ token, userId }) => {
   const classes = useStyles();
   const router = useRouter();
-  const { token, userId } = useSelector((state) => {
-    return {
-      token: state.authReducer.token,
-      userId: state.authReducer.userId,
-    };
-  });
+
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 

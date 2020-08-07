@@ -8,8 +8,8 @@ const initialState = {
 };
 
 const setToken = (oldState, action) => {
-  localStorage.setItem("token", action.token);
-  localStorage.setItem("userId", action.userId);
+  // localStorage.setItem("token", action.token);
+  // localStorage.setItem("userId", action.userId);
 
   const payload = jwt.decode(action.token);
   return {
@@ -21,8 +21,8 @@ const setToken = (oldState, action) => {
 };
 
 const removeToken = (oldState, action) => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("userId");
+  // localStorage.removeItem("token");
+  // localStorage.removeItem("userId");
   return {
     ...oldState,
     token: null,

@@ -6,6 +6,7 @@ import { ThemeProvider, CssBaseline } from "@material-ui/core";
 import { useEffect } from "react";
 import Head from "next/head";
 import "../styles/globals.css";
+import { PersistGate } from "redux-persist/integration/react";
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
@@ -28,12 +29,14 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
+        <PersistGate loading={null} persistor={store.__PERSISTOR}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </PersistGate>
       </Provider>
     </React.Fragment>
   );

@@ -71,7 +71,7 @@ NumberFormatTel.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-const Personal = (props) => {
+const Personal = ({ token, userId }) => {
   const classes = useStyles();
 
   const [saveButtonLoading, setSaveButtonLoading] = useState(false);
@@ -86,8 +86,6 @@ const Personal = (props) => {
 
   useEffect(() => {
     let _isMounted = true;
-    const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
     if (userId) {
       Axios.post(
         GRAPHQLAPI_ENDPOINT,
@@ -146,7 +144,7 @@ const Personal = (props) => {
       {
         query: `
           mutation {
-            updateUser(id: "${props.userId}", userData: {
+            updateUser(id: "${userId}", userData: {
               f_name: "${f_name}"
               l_name: "${l_name}"
               mobile: "${mobile}"
@@ -158,7 +156,7 @@ const Personal = (props) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + props.token,
+          Authorization: "Bearer " + token,
         },
       }
     )

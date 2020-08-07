@@ -129,7 +129,7 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-const Ordered = (props) => {
+const Ordered = ({ token, userId }) => {
   const classes = useStyles();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -139,8 +139,7 @@ const Ordered = (props) => {
 
   useEffect(() => {
     let _isMounted = true;
-    const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
+
     if (userId) {
       Axios.post(
         GRAPHQLAPI_ENDPOINT,
@@ -185,7 +184,7 @@ const Ordered = (props) => {
           setLoading(false);
           setOrdered(resData.data.getOrders);
         })
-        .catch((err) => {});
+        .catch((err) => console.log(err));
     } else {
       setLoading(false);
     }
