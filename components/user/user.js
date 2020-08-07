@@ -1,23 +1,18 @@
-import React from "react";
 import {
-  Container,
-  makeStyles,
-  Paper,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  makeStyles,
+  Paper,
 } from "@material-ui/core";
-import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import ListIcon from "@material-ui/icons/List";
-import { Route, Switch, Redirect, NavLink } from "react-router-dom";
-import Personal from "./personal/personal";
-import Ordered from "./Ordered/ordered";
-import { connect } from "react-redux";
-import OrderedDetail from "./Ordered/OrderedDetail/orderedDetail";
-import { ACTIVE_LINK } from "./../../utils/constant";
-import { useRouter } from "next/router";
+import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+import { connect } from "react-redux";
+import { ACTIVE_LINK } from "./../../utils/constant";
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,4 +1,4 @@
-import Ordered from "./../../../components/user/ordered/ordered";
+import Ordered from "./../../../components/user/Ordered/ordered";
 import User from "./../../../components/user/user";
 
 const OrderedPage = () => {
