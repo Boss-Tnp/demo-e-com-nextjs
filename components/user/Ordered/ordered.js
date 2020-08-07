@@ -15,21 +15,18 @@ import {
   Grid,
   Typography,
   CircularProgress,
-} from "components/user/ordered/node_modules/@material-ui/core";
-import FirstPageIcon from "components/user/ordered/node_modules/@material-ui/icons/FirstPage";
-import KeyboardArrowLeft from "components/user/ordered/node_modules/@material-ui/icons/KeyboardArrowLeft";
-import KeyboardArrowRight from "components/user/ordered/node_modules/@material-ui/icons/KeyboardArrowRight";
-import LastPageIcon from "components/user/ordered/node_modules/@material-ui/icons/LastPage";
-import Axios from "components/user/ordered/node_modules/axios";
-import moment from "components/user/ordered/node_modules/moment";
-import PropTypes from "components/user/ordered/node_modules/prop-types";
-import React, {
-  useEffect,
-  useState,
-} from "components/user/ordered/node_modules/react";
+} from "@material-ui/core";
+import FirstPageIcon from "@material-ui/icons/FirstPage";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import LastPageIcon from "@material-ui/icons/LastPage";
+import Axios from "axios";
+import moment from "moment";
+import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
 import { GRAPHQLAPI_ENDPOINT } from "../../../utils/constant";
-import { useRouter } from "components/user/ordered/node_modules/next/router";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   topContainer: {
