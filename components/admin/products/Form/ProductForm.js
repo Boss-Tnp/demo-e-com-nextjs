@@ -28,14 +28,14 @@ import {
   GRAPHQLAPI_ENDPOINT,
   RESTAPI_ENDPOINT,
   H1_COLOR,
-} from "./.../../utils/constant";
-import MyButton from "./.../UI/Button/button";
+} from "./../../../../utils/constant";
+import MyButton from "./../../../UI/Button/button";
 import Image from "./Image/image";
 import Info from "./Info/info";
 import Pricing from "./Pricing/pricing";
 import Shipping from "./Shipping/shipping";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import * as actions from "./.../../store/action/index";
+import * as actions from "./../../../../store/action/index";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({

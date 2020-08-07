@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import Axios from "axios";
-import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "./../utils/constant";
-import LoadingPage from "./../components/UI/pages/loading";
-import Product from "./../components/product/product";
+import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "./../../utils/constant";
+import LoadingPage from "./../../components/UI/pages/loading";
+import Product from "./../../components/product/product";
 import { useSelector } from "react-redux";
 
 const ProductPage = (props) => {

@@ -5,12 +5,12 @@ import MuiAlert from "@material-ui/lab/Alert";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import * as actions from "./../store/action/index";
+import * as actions from "./../../store/action/index";
 import {
   API_HEADER,
   GRAPHQLAPI_ENDPOINT,
   updateObject,
-} from "./../utils/constant";
+} from "./../../utils/constant";
 import Description from "./Description/description";
 import ImageGrid from "./ImageGrid/imageGrid";
 import { useRouter } from "next/router";

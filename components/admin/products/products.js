@@ -33,9 +33,9 @@ import {
   API_HEADER,
   GRAPHQLAPI_ENDPOINT,
   INACTIVE_COLOR,
-} from "./../../utils/constant";
-import MyButton from "./../UI/Button/button";
-import * as actions from "./../../store/action/index";
+} from "./../../../utils/constant";
+import MyButton from "./../../UI/Button/button";
+import * as actions from "./../../../store/action/index";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
