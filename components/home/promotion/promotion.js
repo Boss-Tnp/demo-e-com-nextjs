@@ -43,8 +43,8 @@ const Promotion = () => {
         <Grid item xs={12}> */}
       <div className={classes.paperContainer}>
         <div className={classes.text}>
-          <Typography variant="h2">Demo Project</Typography>
-          <Typography variant="h3">
+          <Typography variant="h4">Demo Project</Typography>
+          <Typography variant="h5">
             Praesent tincidunt fringilla metus, id pharetra ipsum volutpat quis.
             Curabitur libero lectus, imperdiet a luctus at, faucibus nec tortor.
             Vivamus vel ultricies enim.
@@ -57,7 +57,7 @@ const Promotion = () => {
             component="img"
             className={classes.img}
             alt="new-collection"
-            src="https://firebasestorage.googleapis.com/v0/b/e-commerce-24970.appspot.com/o/banner-img.png?alt=media&token=f9a798c3-165d-4ebf-814c-3b9108790fb6"
+            src="https://firebasestorage.googleapis.com/v0/b/e-commerce-24970.appspot.com/o/banner-img-compress.png?alt=media&token=c8f14b4e-a45e-42fb-be74-c9604963effb"
           ></Typography>
         </div>
       </div>
