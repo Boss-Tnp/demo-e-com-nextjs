@@ -5,9 +5,8 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import Axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { GRAPHQLAPI_ENDPOINT } from "../../../../utils/constant";
-import OrderedCard from "./orderedCard/orderedCard";
+import OrderedCard from "./orderedcard/orderedcard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
