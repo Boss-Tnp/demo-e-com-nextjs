@@ -33,7 +33,7 @@ import {
   API_HEADER,
   GRAPHQLAPI_ENDPOINT,
   INACTIVE_COLOR,
-} from "../../../Utils/constant";
+} from "../../../utils/constant";
 import MyButton from "../../UI/Button/button";
 import * as actions from "../../../Store/Action/index";
 import { useRouter } from "next/router";

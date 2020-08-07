@@ -10,7 +10,7 @@ import {
   API_HEADER,
   GRAPHQLAPI_ENDPOINT,
   updateObject,
-} from "../../Utils/constant";
+} from "../../utils/constant";
 import Description from "./Description/description";
 import ImageGrid from "./ImageGrid/imageGrid";
 import { useRouter } from "next/router";

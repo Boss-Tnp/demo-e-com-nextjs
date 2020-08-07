@@ -8,7 +8,7 @@ import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import React from "react";
 import { connect } from "react-redux";
 import { Link, Redirect, Route, Switch } from "react-router-dom";
-import Personal from "../User/Personal/personal";
+import Personal from "../user/personal/personal";
 import ProductForm from "./products/Form/ProductForm";
 import Products from "./products/products";
 

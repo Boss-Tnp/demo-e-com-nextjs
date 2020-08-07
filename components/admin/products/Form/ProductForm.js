@@ -28,7 +28,7 @@ import {
   GRAPHQLAPI_ENDPOINT,
   RESTAPI_ENDPOINT,
   H1_COLOR,
-} from "../../../../Utils/constant";
+} from "../../../../utils/constant";
 import MyButton from "../../../UI/Button/button";
 import Image from "./Image/image";
 import Info from "./Info/info";

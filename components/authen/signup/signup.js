@@ -17,7 +17,7 @@ import {
   API_HEADER,
   updateObject,
   GRAPHQLAPI_ENDPOINT,
-} from "../../../Utils/constant";
+} from "../../../utils/constant";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({

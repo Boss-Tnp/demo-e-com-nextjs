@@ -4,7 +4,7 @@ import {
   H1_COLOR,
   SECOND_COLOR,
   SUCCESS_COLOR,
-} from "../../../Utils/constant";
+} from "../../../utils/constant";
 
 const iframeStyles = {
   base: {
