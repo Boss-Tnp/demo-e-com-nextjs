@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Personal from "../components/user/personal/personal";
+import Personal from "./../components/user/personal/personal";
 import User from "../components/user/user";
 
 const PersonalPage = () => {
