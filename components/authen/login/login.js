@@ -100,48 +100,6 @@ const Login = (props) => {
           API_HEADER
         );
 
-        const resCart = await Axios.post(
-          GRAPHQLAPI_ENDPOINT,
-          {
-            query: `
-          query {
-            getCart(userId: "${res.data.data.login.userId}") {
-              _id
-              productId {
-                _id
-                info {
-                  brand model description stock
-                }
-                pricing {
-                  price discount netPrice
-                }
-                imageUrl {
-                  _id nameUrl
-                }
-                shipping {
-                  weight heels shoeTip
-                }
-                active
-              }
-              quantity
-            }
-          }
-      `,
-          },
-          {
-            headers: {
-              Authorization: "Bearer " + res.data.data.login.token,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        const cartNo = resCart.data.data.getCart
-          .map((el) => {
-            return el.quantity;
-          })
-          .reduce((prv, curr) => prv + curr, 0);
-
         setLoginButtonLoading(false);
         dispatch(
           actions.setToken(
@@ -149,7 +107,6 @@ const Login = (props) => {
             res.data.data.login.userId
           )
         );
-        dispatch(actions.setCartNo(cartNo));
 
         if (res.data.data.login.role === "admin") {
           router.push("/products");

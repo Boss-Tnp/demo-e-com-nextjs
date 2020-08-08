@@ -14,7 +14,48 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import React, { useState } from "react";
 import { withRouter } from "next/router";
 import Link from "next/link";
-import styles from "./navbar.module.scss";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    height: "10vh",
+    // marginBottom: theme.spacing(2),
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    display: "block",
+    margin: "0 24px",
+    position: "relative",
+    cursor: "pointer",
+  },
+  spacing: {
+    flexGrow: 3,
+  },
+  cart: {
+    margin: "0 24px",
+    cursor: "pointer",
+    color: "white",
+  },
+  sectionDesktop: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+    },
+  },
+  sectionMobile: {
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  drawerRoot: {
+    width: "100%",
+    minWidth: 300,
+    // backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 const menus = [
   {
@@ -36,6 +77,7 @@ const menus = [
 ];
 
 const Navbar = (props) => {
+  const classes = useStyles();
   const { router } = props;
   const [drawer, setDrawer] = useState(false);
 
@@ -65,15 +107,15 @@ const Navbar = (props) => {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={classes.root}>
       <AppBar
         position="static"
         elevation={0}
         style={{ backgroundColor: "inherit", color: "white" }}
       >
         <Toolbar>
-          <div className={styles.sectionDesktop}>
-            <Typography variant="subtitle2" className={styles.title}>
+          <div className={classes.sectionDesktop}>
+            <Typography variant="subtitle2" className={classes.title}>
               <Link href="/">
                 <a>Home</a>
               </Link>
@@ -83,7 +125,7 @@ const Navbar = (props) => {
                 <Typography
                   key={el.value}
                   variant="subtitle2"
-                  className={styles.title}
+                  className={classes.title}
                   onClick={(e) => onSelectBrandHandler(e, el.value)}
                 >
                   {el.label}
@@ -91,7 +133,7 @@ const Navbar = (props) => {
               );
             })}
           </div>
-          <div className={styles.sectionMobile}>
+          <div className={classes.sectionMobile}>
             <IconButton
               edge="start"
               color="inherit"
@@ -101,7 +143,7 @@ const Navbar = (props) => {
               <MenuIcon />
             </IconButton>
             <Drawer open={drawer} onClose={toggleDrawer(false)}>
-              <div className={styles.drawerRoot}>
+              <div className={classes.drawerRoot}>
                 <List component="nav" aria-label="secondary mailbox folders">
                   <Link href="/">
                     <ListItem button onClick={toggleDrawer(false)}>
@@ -122,9 +164,9 @@ const Navbar = (props) => {
               </div>
             </Drawer>
           </div>
-          <div className={styles.spacing} />
+          <div className={classes.spacing} />
           {props.role === "user" ? (
-            <Typography className={styles.title} variant="subtitle2">
+            <Typography className={classes.title} variant="subtitle2">
               <Link href="/personal">
                 <a>ข้อมูลของฉัน</a>
               </Link>
@@ -132,7 +174,7 @@ const Navbar = (props) => {
           ) : null}
           {/* &nbsp; */}
           {props.role === "admin" ? (
-            <Typography className={styles.title} variant="subtitle2">
+            <Typography className={classes.title} variant="subtitle2">
               <Link href="/products">
                 <a>Admin</a>
               </Link>
@@ -140,7 +182,7 @@ const Navbar = (props) => {
           ) : null}
           {props.token && props.role === "user" ? (
             <Link href="/checkout">
-              <IconButton className={styles.cart}>
+              <IconButton className={classes.cart}>
                 <Badge badgeContent={props.cartNo} color="secondary">
                   <ShoppingCartOutlinedIcon />
                 </Badge>
@@ -150,7 +192,7 @@ const Navbar = (props) => {
           {props.token ? (
             <Link href="/">
               <Button
-                className={styles.authenButton}
+                className={classes.authenButton}
                 variant="outlined"
                 color="inherit"
                 onClick={props.onLogout}

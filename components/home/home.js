@@ -76,13 +76,6 @@ const Home = () => {
 
   return (
     <>
-      <Head>
-        <title>Demo E-commerce</title>
-        <meta
-          name="description"
-          content="A Home Page For Demo E-Commerce Project with NextJS."
-        />
-      </Head>
       <Fade bottom>
         <Promotion></Promotion>
         <Advertisement></Advertisement>

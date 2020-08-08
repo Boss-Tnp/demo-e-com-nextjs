@@ -43,8 +43,8 @@ const Promotion = () => {
         <Grid item xs={12}> */}
       <div className={classes.paperContainer}>
         <div className={classes.text}>
-          <Typography variant="h4">Demo Project</Typography>
-          <Typography variant="h5">
+          <Typography variant="h3">Demo Project</Typography>
+          <Typography component="div" variant="h6">
             Praesent tincidunt fringilla metus, id pharetra ipsum volutpat quis.
             Curabitur libero lectus, imperdiet a luctus at, faucibus nec tortor.
             Vivamus vel ultricies enim.

@@ -7,13 +7,16 @@ import {
   Paper,
   TextField,
   Typography,
+  CircularProgress,
 } from "@material-ui/core";
 import { CardElement } from "@stripe/react-stripe-js";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import StripeInput from "./../../payment/PaymentForm/StripeInput";
 import MyButton from "./../Button/button";
+import { useSelector } from "react-redux";
+import useUserInfo from "../../../hooks/useUserInfo";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -46,12 +49,39 @@ const useStyles = makeStyles((theme) => ({
 
 const UserForm = (props) => {
   const classes = useStyles();
-  const info = props.info;
-  const { register, errors, handleSubmit } = useForm({
-    defaultValues: info,
+  const { token, userId } = useSelector((state) => {
+    return {
+      token: state.authReducer.token,
+      userId: state.authReducer.userId,
+    };
+  });
+  const { user: userInfo, isLoading, isError } = useUserInfo(userId, token);
+  const { register, errors, handleSubmit, reset } = useForm({
+    defaultValues: userInfo,
   });
 
-  // console.log(errors);
+  useEffect(() => {
+    reset(userInfo);
+  }, [userInfo]);
+
+  if (isLoading) {
+    // return <LoadingPage />;
+    return (
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        <CircularProgress
+          style={{
+            margin: "auto",
+          }}
+        />
+      </div>
+    );
+  }
+
+  // if (isError) return <p>Error</p>;
 
   return (
     <form onSubmit={handleSubmit(props.onSubmitHandler)}>
@@ -64,7 +94,10 @@ const UserForm = (props) => {
                   <ImageIcon />
                 </Avatar>
               </ListItemAvatar> */}
-              <ListItemText primary="สวัสดีคุณ" secondary={info.username} />
+              <ListItemText
+                primary="สวัสดีคุณ"
+                secondary={userInfo ? userInfo.username : null}
+              />
             </ListItem>
             <MyButton
               color="primary"

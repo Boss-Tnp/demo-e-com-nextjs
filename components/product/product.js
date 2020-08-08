@@ -14,6 +14,7 @@ import {
 import Description from "./Description/description";
 import ImageGrid from "./ImageGrid/imageGrid";
 import { useRouter } from "next/router";
+import useCart from "../../hooks/useCart";
 
 const useStyles = makeStyles((theme) => ({
   paperContainer: {
@@ -35,58 +36,7 @@ const Product = ({ product, token, role, userId }) => {
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [addButtonLoading, setAddButtonLoading] = useState(false);
-  const [productData, setInputData] = useState(product);
-  // const t
-
-  // useEffect(() => {
-  //   let _isMounted = true;
-  //   const productId = router.query.prd;
-  //   Axios.post(
-  //     GRAPHQLAPI_ENDPOINT,
-  //     {
-  //       query: `
-  //           query {
-  //             getProduct(id: "${productId}") {
-  //               _id
-  //               info {
-  //                 brand model description stock
-  //               }
-  //               pricing {
-  //                 price discount netPrice
-  //               }
-  //               imageUrl {
-  //                 _id nameUrl
-  //               }
-  //               shipping {
-  //                 weight heels shoeTip
-  //               }
-  //               active
-  //             }
-  //           }
-  //     `,
-  //     },
-  //     API_HEADER
-  //   )
-  //     .then((res) => {
-  //       if (!_isMounted) {
-  //         return;
-  //       }
-  //       if (res.status === 200) {
-  //         return res.data;
-  //       }
-  //     })
-  //     .then((resData) => {
-  //       // console.log(resData);
-  //       setInputData(updateObject(productData, resData.data.getProduct));
-  //     })
-  //     .catch((err) => {
-  //       alert(err);
-  //     });
-
-  //   return () => {
-  //     _isMounted = false;
-  //   };
-  // }, []);
+  const { mutate } = useCart(userId, token);
 
   const onAddProductToCart = () => {
     if (token) {
@@ -96,7 +46,7 @@ const Product = ({ product, token, role, userId }) => {
         {
           query: `
             mutation {
-              addToCart(productId: "${productData._id}", userId: "${userId}")
+              addToCart(productId: "${product._id}", userId: "${userId}")
             }
           `,
         },
@@ -111,7 +61,7 @@ const Product = ({ product, token, role, userId }) => {
           if (res.status === 200) {
             setOpenSnackbar(true);
             setAddButtonLoading(false);
-            dispatch(actions.increaseCartNo());
+            mutate();
           } else {
             alert("เกิดข้อผิดพลาด");
           }
@@ -150,12 +100,12 @@ const Product = ({ product, token, role, userId }) => {
       <Paper className={classes.paperContainer} square elevation={3}>
         <Grid container>
           <Grid item sm={6} xs={12} style={{ backgroundColor: "#0e1e2f" }}>
-            <ImageGrid imageUrl={productData.imageUrl} />
+            <ImageGrid imageUrl={product.imageUrl} />
           </Grid>
           <Grid item sm={6} xs={12} style={{ backgroundColor: "#031425" }}>
             <Description
               onAddProductToCart={onAddProductToCart}
-              product={productData}
+              product={product}
               role={role}
               addButtonLoading={addButtonLoading}
             />

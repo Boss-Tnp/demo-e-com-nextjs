@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
 import { GRAPHQLAPI_ENDPOINT } from "../../../utils/constant";
 import UserForm from "../../UI/UserForm/userForm";
+import useSWR from "swr";
+import useUserInfo from "../../../hooks/useUserInfo";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -70,67 +72,18 @@ NumberFormatTel.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-const Personal = ({ token, userId }) => {
+const Personal = ({ userId, token }) => {
   const classes = useStyles();
 
   const [saveButtonLoading, setSaveButtonLoading] = useState(false);
-  const [formState, setFormState] = useState({
-    username: "",
-    f_name: "",
-    l_name: "",
-    mobile: "",
-    address: "",
-    creditCard: "",
-  });
-
-  useEffect(() => {
-    let _isMounted = true;
-    if (userId) {
-      Axios.post(
-        GRAPHQLAPI_ENDPOINT,
-        {
-          query: `
-            query {
-              getUser(id: "${userId}") {
-                _id
-                username
-                f_name
-                l_name
-                mobile
-                address
-                creditCard
-              }
-            }
-          `,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        }
-      )
-        .then((res) => {
-          if (!_isMounted) {
-            return;
-          }
-
-          if (res.status === 200) {
-            return res.data;
-          }
-        })
-        .then((resData) => {
-          setFormState({ ...formState, ...resData.data.getUser });
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    }
-
-    return () => {
-      _isMounted = false;
-    };
-  }, []);
+  // const [formState, setFormState] = useState({
+  //   username: "",
+  //   f_name: "",
+  //   l_name: "",
+  //   mobile: "",
+  //   address: "",
+  //   creditCard: "",
+  // });
 
   const onSubmitHandler = (data) => {
     // console.log(data);
@@ -173,28 +126,11 @@ const Personal = ({ token, userId }) => {
       });
   };
 
-  if (formState.username === "") {
-    // return <LoadingPage />;
-    return (
-      <div
-        style={{
-          display: "flex",
-        }}
-      >
-        <CircularProgress
-          style={{
-            margin: "auto",
-          }}
-        />
-      </div>
-    );
-  }
-
   return (
     <UserForm
       cameFrom="personal"
       onSubmitHandler={onSubmitHandler}
-      info={formState}
+      // info={user}
       saveButtonLoading={saveButtonLoading}
     />
   );

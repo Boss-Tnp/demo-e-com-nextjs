@@ -61,90 +61,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Checkout = (props) => {
+const Checkout = ({
+  token,
+  userId,
+  cartItems,
+  totalPrice,
+  onUpdateCartItems,
+}) => {
   const classes = useStyles();
   const router = useRouter();
 
   const fee = 100;
-  const [loading, setLoading] = useState(true);
   const [processing, setProcess] = useState(false);
   const [checkoutButtonLoading, setCheckoutButtonLoading] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    let _isMounted = true;
-    const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
-    if (userId) {
-      Axios.post(
-        GRAPHQLAPI_ENDPOINT,
-        {
-          query: `
-          query {
-            getCart(userId: "${userId}") {
-              _id
-              productId {
-                _id
-                info {
-                  brand model description stock
-                }
-                pricing {
-                  price discount netPrice
-                }
-                imageUrl {
-                  _id nameUrl
-                }  
-                shipping {
-                  weight heels shoeTip
-                }
-                active
-              }
-              quantity
-            }
-          }
-      `,
-        },
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((res) => {
-          if (res.status === 200) {
-            return res.data;
-          }
-        })
-        .then((resData) => {
-          if (!_isMounted) {
-            return;
-          }
-          setLoading(false);
-          const updatedCartItems = [...resData.data.getCart];
-
-          updateTotalPrice(updatedCartItems);
-          setCartItems(updatedCartItems);
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    } else {
-      if (_isMounted) {
-        setLoading(false);
-      }
-    }
-
-    return () => {
-      _isMounted = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    // console.log(cartItems);
-    updateTotalPrice(cartItems);
-  }, [cartItems]);
 
   const onDeleteItem = (e, productId, qty) => {
     e.preventDefault();
@@ -157,7 +86,7 @@ const Checkout = (props) => {
         {
           query: `
             mutation {
-              deleteFromCart(productId: "${productId}", userId: "${props.userId}") {
+              deleteFromCart(productId: "${productId}", userId: "${userId}") {
                 _id
                 productId {
                   _id
@@ -183,7 +112,7 @@ const Checkout = (props) => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + props.token,
+            Authorization: "Bearer " + token,
           },
         }
       )
@@ -193,24 +122,15 @@ const Checkout = (props) => {
           }
         })
         .then((resData) => {
-          props.onSetCartNo(props.cartNo - qty);
+          // onSetCartNo(props.cartNo - qty);
           setProcess(false);
-          setCartItems(resData.data.deleteFromCart);
+          onUpdateCartItems();
+          // setCartItems(resData.data.deleteFromCart);
         })
         .catch((err) => {
           alert(err);
         });
     }
-  };
-
-  const updateTotalPrice = (updatedCartItems) => {
-    const updatedTotalPrice = updatedCartItems
-      .map((el) => {
-        return el.productId.pricing.price * el.quantity;
-      })
-      .reduce((prv, curr) => prv + curr, 0);
-
-    setTotalPrice(updatedTotalPrice);
   };
 
   const onIncreaseItem = (e, productId) => {
@@ -220,14 +140,14 @@ const Checkout = (props) => {
       {
         query: `
             mutation {
-              addToCart(productId: "${productId}", userId: "${props.userId}")
+              addToCart(productId: "${productId}", userId: "${userId}")
             }
           `,
       },
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + props.token,
+          Authorization: "Bearer " + token,
         },
       }
     )
@@ -237,17 +157,15 @@ const Checkout = (props) => {
         }
       })
       .then((resData) => {
-        // setOpenSnackbar(true);
-        const updatedItem = cartItems.map((el) => {
-          if (el.productId._id === productId) {
-            el.quantity += 1;
-          }
+        // const updatedCartItems = cartItems.map((el) => {
+        //   if (el.productId._id === productId) {
+        //     el.quantity += 1;
+        //   }
 
-          return el;
-        });
+        //   return el;
+        // });
+        onUpdateCartItems();
         setProcess(false);
-        setCartItems(updatedItem);
-        props.onIncreaseCartNo();
       })
       .catch((err) => {
         alert(err);
@@ -264,14 +182,14 @@ const Checkout = (props) => {
         {
           query: `
               mutation {
-                deleteByOneFromCart(productId: "${productId}", userId: "${props.userId}")
+                deleteByOneFromCart(productId: "${productId}", userId: "${userId}")
               }
             `,
         },
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + props.token,
+            Authorization: "Bearer " + token,
           },
         }
       )
@@ -282,16 +200,16 @@ const Checkout = (props) => {
         })
         .then((resData) => {
           // setOpenSnackbar(true);
-          const updatedItem = cartItems.map((el) => {
-            if (el.productId._id === productId) {
-              el.quantity -= 1;
-            }
+          // const updatedCartItems = cartItems.map((el) => {
+          //   if (el.productId._id === productId) {
+          //     el.quantity -= 1;
+          //   }
 
-            return el;
-          });
-          setCartItems(updatedItem);
+          //   return el;
+          // });
+          onUpdateCartItems();
           setProcess(false);
-          props.onDecreaseCartNo();
+          // props.onDecreaseCartNo();
         })
         .catch((err) => {
           alert(err);
@@ -314,7 +232,7 @@ const Checkout = (props) => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + props.token,
+            Authorization: "Bearer " + token,
           },
         }
       );
@@ -329,23 +247,6 @@ const Checkout = (props) => {
       alert(err);
     }
   };
-
-  if (loading) {
-    // return <LoadingPage />;
-    return (
-      <div
-        style={{
-          display: "flex",
-        }}
-      >
-        <CircularProgress
-          style={{
-            margin: "auto",
-          }}
-        />
-      </div>
-    );
-  }
 
   if (cartItems.length === 0) {
     return (
@@ -459,20 +360,4 @@ const Checkout = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    userId: state.authReducer.userId,
-    token: state.authReducer.token,
-    cartNo: state.cartReducer.cartNo,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSetCartNo: (cartNo) => dispatch(actions.setCartNo(cartNo)),
-    onIncreaseCartNo: () => dispatch(actions.increaseCartNo()),
-    onDecreaseCartNo: () => dispatch(actions.decreaseCartNo()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
+export default Checkout;

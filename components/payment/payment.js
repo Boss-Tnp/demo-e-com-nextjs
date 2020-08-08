@@ -45,14 +45,14 @@ const Payment = () => {
   const dispatch = useDispatch();
 
   const [saveButtonLoading, setSaveButtonLoading] = useState(false);
-  const [formState, setFormState] = useState({
-    username: "",
-    f_name: "",
-    l_name: "",
-    mobile: "",
-    address: "",
-    creditCard: "",
-  });
+  // const [formState, setFormState] = useState({
+  //   username: "",
+  //   f_name: "",
+  //   l_name: "",
+  //   mobile: "",
+  //   address: "",
+  //   creditCard: "",
+  // });
   const [errorCreditCardMsg, setErrorCreditCardMsg] = useState(null);
   const { token, userId } = useSelector((state) => {
     return {
@@ -61,52 +61,52 @@ const Payment = () => {
     };
   });
 
-  useEffect(() => {
-    let _isMounted = true;
-    // setClientSecret(new URLSearchParams(props.location.search).get("csc"));
+  // useEffect(() => {
+  //   let _isMounted = true;
+  //   // setClientSecret(new URLSearchParams(props.location.search).get("csc"));
 
-    async function fetchUser() {
-      const response = await Axios.post(
-        GRAPHQLAPI_ENDPOINT,
-        {
-          query: `
-            query {
-              getUser(id: "${userId}") {
-                _id
-                username
-                f_name
-                l_name
-                mobile
-                address
-                creditCard
-              }
-            }
-          `,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
-      if (response.status === 200) {
-        setFormState({ ...formState, ...response.data.data.getUser });
-      }
-    }
+  //   async function fetchUser() {
+  //     const response = await Axios.post(
+  //       GRAPHQLAPI_ENDPOINT,
+  //       {
+  //         query: `
+  //           query {
+  //             getUser(id: "${userId}") {
+  //               _id
+  //               username
+  //               f_name
+  //               l_name
+  //               mobile
+  //               address
+  //               creditCard
+  //             }
+  //           }
+  //         `,
+  //       },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: "Bearer " + token,
+  //         },
+  //       }
+  //     );
+  //     if (response.status === 200) {
+  //       setFormState({ ...formState, ...response.data.data.getUser });
+  //     }
+  //   }
 
-    if (userId) {
-      try {
-        fetchUser();
-      } catch (err) {
-        alert(err);
-      }
-    }
+  //   if (userId) {
+  //     try {
+  //       fetchUser();
+  //     } catch (err) {
+  //       alert(err);
+  //     }
+  //   }
 
-    return () => {
-      _isMounted = false;
-    };
-  }, []);
+  //   return () => {
+  //     _isMounted = false;
+  //   };
+  // }, []);
 
   const onSubmitHandler = async (data) => {
     // e.preventDefault();
@@ -205,29 +205,11 @@ const Payment = () => {
     }
   };
 
-  if (formState.username === "") {
-    return <LoadingPage />;
-    // return (
-    //   <div
-    //     style={{
-    //       display: "flex",
-    //     }}
-    //   >
-    //     <CircularProgress
-    //       style={{
-    //         margin: "auto",
-    //       }}
-    //     />
-    //   </div>
-    // );
-  }
-
   return (
     <Container>
       <UserForm
         readOnly
         cameFrom="payment"
-        info={formState}
         handleCardDetailsChange={handleCardDetailsChange}
         errorCreditCardMsg={errorCreditCardMsg}
         onSubmitHandler={onSubmitHandler}

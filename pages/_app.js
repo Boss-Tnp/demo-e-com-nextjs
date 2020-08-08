@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }) {
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
+          description="A Home Page For Demo E-Commerce Project with NextJS."
         />
       </Head>
       <Provider store={store}>
