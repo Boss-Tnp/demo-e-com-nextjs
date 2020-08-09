@@ -1,8 +1,11 @@
-// const path = require("path");
-
 module.exports = {
-  //   webpack: (config) => {
-  //     config.resolve.modules.push(path.resolve("./"));
-  //     return config;
-  //   },
+  webpack(config, options) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      react: "preact/compat",
+      "react-dom": "preact/compat",
+    };
+
+    return config;
+  },
 };
