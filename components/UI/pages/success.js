@@ -1,7 +1,7 @@
 import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
 import { green } from "@material-ui/core/colors";
-import React from "react";
 import Link from "next/link";
+import React from "react";
 import MyButton from "./../../UI/Button/button";
 
 const useStyles = makeStyles((theme) => ({

@@ -1,8 +1,8 @@
-import { CircularProgress, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useEffect, useState } from "react";
 import { withRouter } from "next/router";
+import React from "react";
 import Item from "./../../UI/Item/item";
 
 const useStyles = makeStyles((theme) => ({

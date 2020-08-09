@@ -1,12 +1,12 @@
-import Layout from "./layout/layout";
-import { useStore } from "./../store/store";
-import { Provider } from "react-redux";
-import theme from "../src/theme";
-import { ThemeProvider, CssBaseline } from "@material-ui/core";
-import { useEffect } from "react";
+import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import Head from "next/head";
-import "../styles/globals.css";
+import { useEffect } from "react";
+import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import theme from "../src/theme";
+import "../styles/globals.css";
+import { useStore } from "./../store/store";
+import Layout from "./layout/layout";
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);

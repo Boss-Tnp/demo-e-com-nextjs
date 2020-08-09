@@ -1,13 +1,12 @@
-import { CircularProgress, Container, makeStyles } from "@material-ui/core";
+import { Container, makeStyles } from "@material-ui/core";
 import { useElements, useStripe } from "@stripe/react-stripe-js";
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import * as actions from "./../../store/action/index";
 import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
 import UserForm from "./../UI/UserForm/userForm";
-import LoadingPage from "./../UI/pages/loading";
-import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   container: {

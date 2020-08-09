@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import Navbar from "./navbar/navbar";
-import { useSelector, useDispatch } from "react-redux";
-import * as actions from "../../store/action/index";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import useCart from "../../hooks/useCart";
+import * as actions from "../../store/action/index";
+import Navbar from "./navbar/navbar";
 
 const Layout = (props) => {
   const dispatch = useDispatch();

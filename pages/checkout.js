@@ -1,8 +1,7 @@
+import { useDispatch, useSelector } from "react-redux";
 import Checkout from "../components/checkout/checkout";
-import { useSelector, useDispatch } from "react-redux";
-import useCart from "../hooks/useCart";
 import LoadingPage from "../components/UI/pages/loading";
-import { useState, useEffect } from "react";
+import useCart from "../hooks/useCart";
 
 const updateTotalPrice = (updatedCartItems) => {
   const updatedTotalPrice = updatedCartItems

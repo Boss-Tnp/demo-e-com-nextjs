@@ -1,5 +1,5 @@
+import { CircularProgress, Dialog, DialogContent } from "@material-ui/core";
 import React from "react";
-import { Dialog, CircularProgress, DialogContent } from "@material-ui/core";
 
 const Processing = (props) => {
   return (

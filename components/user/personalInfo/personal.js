@@ -1,12 +1,10 @@
-import { CircularProgress, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import Axios from "axios";
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NumberFormat from "react-number-format";
 import { GRAPHQLAPI_ENDPOINT } from "../../../utils/constant";
 import UserForm from "../../UI/UserForm/userForm";
-import useSWR from "swr";
-import useUserInfo from "../../../hooks/useUserInfo";
 
 const useStyles = makeStyles((theme) => ({
   container: {

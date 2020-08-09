@@ -6,15 +6,14 @@
 
 // export default Item;
 
-import React from "react";
-import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-
 import CardContent from "@material-ui/core/CardContent";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import NumberFormat from "react-number-format";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useRouter } from "next/router";
+import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles((theme) =>
   createStyles({

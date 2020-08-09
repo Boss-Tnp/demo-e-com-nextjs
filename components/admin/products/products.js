@@ -23,21 +23,14 @@ import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
-import Axios from "axios";
-import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
-import NumberFormat from "react-number-format";
-import { withRouter } from "react-router";
-import {
-  ACTIVE_COLOR,
-  API_HEADER,
-  GRAPHQLAPI_ENDPOINT,
-  INACTIVE_COLOR,
-} from "./../../../utils/constant";
-import MyButton from "./../../UI/Button/button";
-import * as actions from "./../../../store/action/index";
 import { useRouter } from "next/router";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import NumberFormat from "react-number-format";
 import { useDispatch } from "react-redux";
+import * as actions from "./../../../store/action/index";
+import { ACTIVE_COLOR, INACTIVE_COLOR } from "./../../../utils/constant";
+import MyButton from "./../../UI/Button/button";
 
 const useStyles = makeStyles((theme) => ({
   productsContainer: {

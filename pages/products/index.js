@@ -1,7 +1,6 @@
-import Products from "../../components/admin/products/products";
-import { useSelector, useDispatch } from "react-redux";
 import Axios from "axios";
-import { GRAPHQLAPI_ENDPOINT, API_HEADER } from "../../utils/constant";
+import Products from "../../components/admin/products/products";
+import { API_HEADER, GRAPHQLAPI_ENDPOINT } from "../../utils/constant";
 
 const ProductsPage = (pageProps) => {
   // const products = useSelector((state) => state.productsReducer.products);

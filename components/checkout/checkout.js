@@ -1,23 +1,20 @@
 import {
-  CircularProgress,
+  Button,
   Container,
   Divider,
   Grid,
   Paper,
   Typography,
-  Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
-import NumberFormat from "react-number-format";
-import { connect } from "react-redux";
-import MyButton from "./../UI/Button/button";
-import * as actions from "./../../store/action/index";
-import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
-import CartItem from "./cartItem/cartItem";
-import Processing from "./../UI/pages/processing";
 import { useRouter } from "next/router";
+import React, { useState } from "react";
+import NumberFormat from "react-number-format";
+import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
+import MyButton from "./../UI/Button/button";
+import Processing from "./../UI/pages/processing";
+import CartItem from "./cartItem/cartItem";
 
 const useStyles = makeStyles((theme) => ({
   cartItemsContainer: {

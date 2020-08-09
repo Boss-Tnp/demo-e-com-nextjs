@@ -1,5 +1,5 @@
-import React from "react";
 import { CircularProgress, Dialog } from "@material-ui/core";
+import React from "react";
 
 const LoadingPage = () => {
   return (

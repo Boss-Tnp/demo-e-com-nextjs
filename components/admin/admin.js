@@ -1,13 +1,8 @@
-import { Paper } from "@material-ui/core";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import React from "react";
 import { connect } from "react-redux";
-import { Link, Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Personal from "../user/personalInfo/personal";
 import ProductForm from "./products/Form/ProductForm";
 import Products from "./products/products";

@@ -11,9 +11,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import React, { useState } from "react";
-import { withRouter } from "next/router";
 import Link from "next/link";
+import { withRouter } from "next/router";
+import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {

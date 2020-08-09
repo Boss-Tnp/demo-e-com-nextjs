@@ -1,10 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import Fade from "react-reveal/Fade";
 import Advertisement from "./advertisement/advertisement";
 import Promotion from "./promotion/promotion";
 import Trending from "./trending/trending";
-import { useSelector } from "react-redux";
-import Fade from "react-reveal/Fade";
-import Head from "next/head";
 
 const Home = () => {
   const activeProducts = useSelector(

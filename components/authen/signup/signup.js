@@ -1,24 +1,16 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  Container,
-  ListItemText,
-  TextField,
-  Divider,
-  Typography,
-  Link,
-  Grid,
-} from "@material-ui/core";
+import { Container, Grid, TextField } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import MyButton from "./../../UI/Button/button";
+import { makeStyles } from "@material-ui/core/styles";
 import Axios from "axios";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 import {
   API_HEADER,
-  updateObject,
   GRAPHQLAPI_ENDPOINT,
+  updateObject,
 } from "./../../../utils/constant";
-import { useRouter } from "next/router";
+import MyButton from "./../../UI/Button/button";
 
 const useStyles = makeStyles((theme) => ({
   loginContainer: {

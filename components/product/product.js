@@ -3,18 +3,14 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import MuiAlert from "@material-ui/lab/Alert";
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import useCart from "../../hooks/useCart";
 import * as actions from "./../../store/action/index";
-import {
-  API_HEADER,
-  GRAPHQLAPI_ENDPOINT,
-  updateObject,
-} from "./../../utils/constant";
+import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
 import Description from "./Description/description";
 import ImageGrid from "./ImageGrid/imageGrid";
-import { useRouter } from "next/router";
-import useCart from "../../hooks/useCart";
 
 const useStyles = makeStyles((theme) => ({
   paperContainer: {

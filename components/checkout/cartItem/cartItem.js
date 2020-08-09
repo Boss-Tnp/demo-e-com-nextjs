@@ -1,16 +1,16 @@
-import React from "react";
-import NumberFormat from "react-number-format";
 import {
-  makeStyles,
   Card,
-  CardMedia,
   CardContent,
-  Typography,
+  CardMedia,
   IconButton,
+  makeStyles,
+  Typography,
 } from "@material-ui/core";
 import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
-import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
+import React from "react";
+import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles((theme) => ({
   sectionDesktop: {
