@@ -1,15 +1,23 @@
 import Axios from "axios";
 import Products from "../../components/admin/products/products";
 import { API_HEADER, GRAPHQLAPI_ENDPOINT } from "../../utils/constant";
+import withProtectRoute from "../../hoc/withProtectRoute";
+import useUserInfo from "../../hooks/useUserInfo";
+import { useRouter } from "next/router";
 
 const ProductsPage = (pageProps) => {
-  // const products = useSelector((state) => state.productsReducer.products);
-  const products = pageProps.products;
+  const { role } = useUserInfo();
 
-  return <Products products={products} />;
+  if (role !== "admin") {
+    const router = useRouter();
+    router.replace("/personal");
+    return;
+  }
+
+  return <Products products={pageProps.products} />;
 };
 
-export default ProductsPage;
+export default withProtectRoute(ProductsPage);
 
 export async function getServerSideProps() {
   // console.log("getStaticProps");

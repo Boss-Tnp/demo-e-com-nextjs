@@ -49,13 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 const UserForm = (props) => {
   const classes = useStyles();
-  const { token, userId } = useSelector((state) => {
-    return {
-      token: state.authReducer.token,
-      userId: state.authReducer.userId,
-    };
-  });
-  const { user: userInfo, isLoading, isError } = useUserInfo(userId, token);
+  const { user: userInfo, isLoading, isError } = useUserInfo();
   const { register, errors, handleSubmit, reset } = useForm({
     defaultValues: userInfo,
   });

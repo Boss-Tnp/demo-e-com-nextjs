@@ -186,7 +186,6 @@ const emptyArray = [];
 
 export const Search = (props) => {
   const router = useRouter();
-  const { query } = router;
 
   const classes = useStyles();
   const activeProducts = useSelector(

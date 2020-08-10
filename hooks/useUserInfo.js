@@ -1,41 +1,23 @@
-import { GraphQLClient, gql, setHeader } from "graphql-request";
+import { GraphQLClient } from "graphql-request";
 import { GRAPHQLAPI_ENDPOINT } from "../utils/constant";
 import useSWR from "swr";
+import { useSelector } from "react-redux";
 
-// const fetchUserInfo = () => {
-//   return Axios.post(
-//     GRAPHQLAPI_ENDPOINT,
-//     {
-//       query: `
-//             query {
-//               getUser(id: "${userId}") {
-//                 _id
-//                 username
-//                 f_name
-//                 l_name
-//                 mobile
-//                 address
-//                 creditCard
-//               }
-//             }
-//           `,
-//     },
-//     {
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: "Bearer " + token,
-//       },
-//     }
-//   );
-// };
+function useUserInfo() {
+  const { token, userId, role } = useSelector((state) => {
+    return {
+      token: state.authReducer.token,
+      userId: state.authReducer.userId,
+      role: state.authReducer.role,
+    };
+  });
 
-function useUserInfo(id, token) {
   const client = new GraphQLClient(GRAPHQLAPI_ENDPOINT);
   client.setHeader("authorization", "Bearer " + token);
 
-  const query = (id) => `
+  const query = (userId) => `
   query {
-               getUser(id: "${id}") {
+               getUser(id: "${userId}") {
                  _id
                  username
                  f_name
@@ -48,7 +30,7 @@ function useUserInfo(id, token) {
 `;
 
   const { data, error } = useSWR(
-    [query(id), id],
+    [query(userId), userId],
     (query) => {
       return client.request(query);
     }
@@ -60,6 +42,7 @@ function useUserInfo(id, token) {
 
   return {
     user: data ? data.getUser : undefined,
+    role: role,
     isLoading: !error && !data,
     isError: error,
   };

@@ -3,6 +3,16 @@ import { GRAPHQLAPI_ENDPOINT } from "../utils/constant";
 import useSWR from "swr";
 
 function useCart(id, token) {
+  if (id === null) {
+    return {
+      data: [],
+      isLoading: false,
+      isError: false,
+      isValidating: false,
+      mutate: () => {},
+    };
+  }
+
   const client = new GraphQLClient(GRAPHQLAPI_ENDPOINT);
   client.setHeader("authorization", "Bearer " + token);
 

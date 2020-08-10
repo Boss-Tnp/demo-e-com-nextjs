@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import PersonalApp from "../components/user/personalInfo/personal";
 import User from "../components/user/user";
+import withProtectRoute from "../hoc/withProtectRoute";
+import { useRouter } from "next/router";
+import useUserInfo from "../hooks/useUserInfo";
 
 const PersonalPage = () => {
   const { token, userId } = useSelector((state) => {
@@ -9,6 +12,13 @@ const PersonalPage = () => {
       userId: state.authReducer.userId,
     };
   });
+  const { role } = useUserInfo();
+
+  if (role !== "user") {
+    const router = useRouter();
+    router.replace("/products");
+    return;
+  }
 
   return (
     <User>
@@ -17,4 +27,4 @@ const PersonalPage = () => {
   );
 };
 
-export default PersonalPage;
+export default withProtectRoute(PersonalPage);

@@ -1,5 +1,6 @@
 import * as actionTypes from "./../action/actionTypes";
 import jwt from "jsonwebtoken";
+import Cookies from "js-cookie";
 
 const initialState = {
   token: null,
@@ -10,6 +11,7 @@ const initialState = {
 const setToken = (oldState, action) => {
   // localStorage.setItem("token", action.token);
   // localStorage.setItem("userId", action.userId);
+  Cookies.set("token", action.token);
 
   const payload = jwt.decode(action.token);
   return {
@@ -23,6 +25,8 @@ const setToken = (oldState, action) => {
 const removeToken = (oldState, action) => {
   // localStorage.removeItem("token");
   // localStorage.removeItem("userId");
+  Cookies.remove("token");
+
   return {
     ...oldState,
     token: null,
