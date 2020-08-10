@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as actions from "./../../store/action/index";
 import { GRAPHQLAPI_ENDPOINT } from "./../../utils/constant";
 import UserForm from "./../UI/UserForm/userForm";
+import useCart from "../../hooks/useCart";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -37,21 +38,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Payment = () => {
-  const classes = useStyles();
   const elements = useElements();
   const stripe = useStripe();
   const router = useRouter();
   const dispatch = useDispatch();
 
   const [saveButtonLoading, setSaveButtonLoading] = useState(false);
-  // const [formState, setFormState] = useState({
-  //   username: "",
-  //   f_name: "",
-  //   l_name: "",
-  //   mobile: "",
-  //   address: "",
-  //   creditCard: "",
-  // });
   const [errorCreditCardMsg, setErrorCreditCardMsg] = useState(null);
   const { token, userId } = useSelector((state) => {
     return {
@@ -60,52 +52,7 @@ const Payment = () => {
     };
   });
 
-  // useEffect(() => {
-  //   let _isMounted = true;
-  //   // setClientSecret(new URLSearchParams(props.location.search).get("csc"));
-
-  //   async function fetchUser() {
-  //     const response = await Axios.post(
-  //       GRAPHQLAPI_ENDPOINT,
-  //       {
-  //         query: `
-  //           query {
-  //             getUser(id: "${userId}") {
-  //               _id
-  //               username
-  //               f_name
-  //               l_name
-  //               mobile
-  //               address
-  //               creditCard
-  //             }
-  //           }
-  //         `,
-  //       },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: "Bearer " + token,
-  //         },
-  //       }
-  //     );
-  //     if (response.status === 200) {
-  //       setFormState({ ...formState, ...response.data.data.getUser });
-  //     }
-  //   }
-
-  //   if (userId) {
-  //     try {
-  //       fetchUser();
-  //     } catch (err) {
-  //       alert(err);
-  //     }
-  //   }
-
-  //   return () => {
-  //     _isMounted = false;
-  //   };
-  // }, []);
+  const { mutate } = useCart();
 
   const onSubmitHandler = async (data) => {
     // e.preventDefault();
@@ -190,7 +137,7 @@ const Payment = () => {
       })
       .then((resData) => {
         setSaveButtonLoading(false);
-        dispatch(actions.setCartNo(0));
+        mutate();
         router.push("/success");
       })
       .catch((err) => {

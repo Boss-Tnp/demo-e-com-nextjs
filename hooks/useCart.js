@@ -1,9 +1,17 @@
 import { GraphQLClient } from "graphql-request";
 import { GRAPHQLAPI_ENDPOINT } from "../utils/constant";
 import useSWR from "swr";
+import { useSelector } from "react-redux";
 
-function useCart(id, token) {
-  if (id === null) {
+function useCart() {
+  const { token, userId } = useSelector((state) => {
+    return {
+      token: state.authReducer.token,
+      userId: state.authReducer.userId,
+    };
+  });
+
+  if (userId === null) {
     return {
       data: [],
       isLoading: false,
@@ -16,9 +24,9 @@ function useCart(id, token) {
   const client = new GraphQLClient(GRAPHQLAPI_ENDPOINT);
   client.setHeader("authorization", "Bearer " + token);
 
-  const query = (id) => `
+  const query = (userId) => `
         query {
-            getCart(userId: "${id}") {
+            getCart(userId: "${userId}") {
                 _id
                 productId {
                 _id
@@ -44,7 +52,7 @@ function useCart(id, token) {
   const fetcher = (url) => client.request(url);
 
   const { data, error, mutate, isValidating } = useSWR(
-    query(id),
+    query(userId),
     (query) => {
       return fetcher(query);
     }

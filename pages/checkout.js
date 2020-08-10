@@ -15,20 +15,13 @@ const updateTotalPrice = (updatedCartItems) => {
 
 const CheckoutPage = (pageProps) => {
   const dispatch = useDispatch();
+  const { data: cartItems, isLoading, mutate } = useCart();
   const { token, userId } = useSelector((state) => {
     return {
       token: state.authReducer.token,
       userId: state.authReducer.userId,
     };
   });
-  const { data: cartItems, isLoading, mutate } = useCart(userId, token);
-
-  // const [cartItems, setCartItems] = useState([]);
-  // useEffect(() => console.log("Effect: "));
-  // useEffect(() => {
-  //   console.log(data);
-  //   setCartItems(data);
-  // }, data);
 
   let totalPrice = 0;
 

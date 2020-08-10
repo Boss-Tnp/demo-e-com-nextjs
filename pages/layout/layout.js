@@ -6,15 +6,14 @@ import Navbar from "./navbar/navbar";
 
 const Layout = (props) => {
   const dispatch = useDispatch();
-  const { token, userId, role } = useSelector((state) => {
+  const { token, role } = useSelector((state) => {
     return {
       token: state.authReducer.token,
-      userId: state.authReducer.userId,
       role: state.authReducer.role,
     };
   });
 
-  const { data: cartItems, isLoading, isError } = useCart(userId, token);
+  const { data: cartItems } = useCart();
   // console.log(cartItems);
   let cartNo = 0;
   if (cartItems?.length > 0) {

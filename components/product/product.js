@@ -32,7 +32,7 @@ const Product = ({ product, token, role, userId }) => {
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [addButtonLoading, setAddButtonLoading] = useState(false);
-  const { mutate } = useCart(userId, token);
+  const { mutate } = useCart();
 
   const onAddProductToCart = () => {
     if (token) {
