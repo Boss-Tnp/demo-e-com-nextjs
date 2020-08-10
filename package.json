@@ -24,6 +24,7 @@
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
     "next": "9.5.1",
+    "next-seo": "^4.7.3",
     "preact": "^10.4.7",
     "preact-compat": "^3.19.0",
     "react": "16.13.1",

@@ -1,5 +1,4 @@
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
-import Head from "next/head";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -7,6 +6,7 @@ import theme from "../src/theme";
 import "../styles/globals.css";
 import { useStore } from "./../store/store";
 import Layout from "./layout/layout";
+import { NextSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
@@ -21,14 +21,10 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <React.Fragment>
-      <Head>
-        <title>Demo E-commerce</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-          description="A Home Page For Demo E-Commerce Project with NextJS."
-        />
-      </Head>
+      <NextSeo
+        title="Demo E-commerce"
+        description="A Home Page For Demo E-Commerce Project with NextJS."
+      />
       <Provider store={store}>
         <PersistGate loading={null} persistor={store.__PERSISTOR}>
           <ThemeProvider theme={theme}>
