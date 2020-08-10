@@ -29,7 +29,13 @@ import React, { useState } from "react";
 import NumberFormat from "react-number-format";
 import { useDispatch } from "react-redux";
 import * as actions from "./../../../store/action/index";
-import { ACTIVE_COLOR, INACTIVE_COLOR } from "./../../../utils/constant";
+import {
+  ACTIVE_COLOR,
+  INACTIVE_COLOR,
+  PAPER_COLOR1,
+  TITLE1_COLOR,
+  H1_COLOR,
+} from "./../../../utils/constant";
 import MyButton from "./../../UI/Button/button";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px 0",
   },
   tableContainer: {
-    backgroundColor: "#131931",
+    backgroundColor: PAPER_COLOR1,
   },
   table: {
     minWidth: 650,
@@ -67,10 +73,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "16px",
   },
   primaryText: {
-    color: "#7a7e83",
+    color: TITLE1_COLOR,
   },
   secondaryText: {
-    color: "#feffff",
+    color: H1_COLOR,
   },
 }));
 

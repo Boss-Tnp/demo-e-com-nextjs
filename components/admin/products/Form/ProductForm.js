@@ -548,7 +548,7 @@ const ProductForm = ({ product, dispatchRedux, token }) => {
                 {productId ? (
                   <>
                     <ListItemAvatar>
-                      <Avatar src={state.avatar.img}></Avatar>
+                      <Avatar src={state.avatar.img} alt="avatar"></Avatar>
                     </ListItemAvatar>
 
                     <ListItemText
